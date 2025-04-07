@@ -1,4 +1,8 @@
-   // Validar el formulario antes de enviar
+console.log("Script cargado correctamente");
+
+
+
+// Validar el formulario antes de enviar
 function validarFormulario() {
     const nombre = document.querySelector('input[name="nombre"]').value.trim();
     const apellido = document.querySelector('input[name="apellido"]').value.trim();
@@ -41,9 +45,10 @@ function validarFormulario() {
         return false;
     }
 
-
     return true;
 }
+
+// Mostrar el formulario de actualización (editar empleado)
 function mostrarFormularioActualizar(id, nombre, apellido, telefono, cargo, departamento, fecha_entrada, fecha_salida, precio, estado, horario) {
     const formActualizar = document.createElement('div');
     formActualizar.innerHTML = `
@@ -67,11 +72,11 @@ function mostrarFormularioActualizar(id, nombre, apellido, telefono, cargo, depa
             <input type="text" name="update_horario" value="${horario}" required>
 
             <button type="submit" name="update">Actualizar</button>
-            <button type="button" onclick="cerrarFormularioActualizar()">Cancelar</button>
+            <button type="button" onclick="cancelarEdicion(this)">Cancelar</button>
         </form>
     `;
 
-    // Estilo rápido opcional para que se vea bien flotante
+    // Estilo flotante
     formActualizar.style.position = "fixed";
     formActualizar.style.top = "50%";
     formActualizar.style.left = "50%";
@@ -83,3 +88,37 @@ function mostrarFormularioActualizar(id, nombre, apellido, telefono, cargo, depa
 
     document.body.appendChild(formActualizar);
 }
+
+function cancelarEdicion(boton) {
+    const formularioFlotante = boton.closest('div');
+    if (formularioFlotante) {
+        formularioFlotante.remove();
+    }
+}
+
+function eliminarReservacion(id) {
+    console.log("ID a eliminar:", id); 
+    if (confirm("¿Estás seguro de que deseas eliminar esta reservación?")) {
+        // Redireccionar a un script PHP con el id a eliminar
+        window.location.href = "delete.php?delete_id=" + id;
+    }
+}
+
+
+// Mostrar/Ocultar el formulario de "Agregar Empleado"
+document.addEventListener('DOMContentLoaded', () => {
+    const botonAgregar = document.querySelector('.boton_agregar');
+    const formulario = document.querySelector('.formulario_empleado');
+
+    if (!botonAgregar || !formulario) return; // Seguridad por si no existen
+
+    let formularioVisible = false;
+
+    botonAgregar.addEventListener('click', () => {
+        formularioVisible = !formularioVisible;
+        formulario.style.display = formularioVisible ? 'block' : 'none';
+        botonAgregar.textContent = formularioVisible ? 'Cancelar' : 'Agregar Empleado';
+    });
+});
+
+

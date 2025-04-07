@@ -5,6 +5,8 @@ $consulta_hotel = mysqli_query($conn, "SELECT * FROM reservaciones");
 
 if (mysqli_num_rows($consulta_hotel) > 0) {
     while ($row = mysqli_fetch_assoc($consulta_hotel)) {
+
+        $clase_estado = ($row['estado'] === 'Activo') ? 'estado-activo' : 'estado-inactivo';
         echo "<tr>
                 <td>{$row['id']}</td>
                 <td>{$row['nombre']}</td>
@@ -15,10 +17,10 @@ if (mysqli_num_rows($consulta_hotel) > 0) {
                 <td>{$row['fecha_entrada']}</td>
                 <td>{$row['fecha_salida']}</td>
                 <td>{$row['precio']}</td>
-                <td>{$row['estado']}</td>
+                <td class='{$clase_estado}'>{$row['estado']}</td>
                 <td>{$row['horario']}</td>
                 <td>
-                    <button onclick='eliminarReservacion({$row['id']})'>Eliminar</button>
+                  <button onclick='eliminarReservacion({$row['id']})'>Eliminar</button>
                     <button onclick='mostrarFormularioActualizar(
                         {$row['id']},
                         \"{$row['nombre']}\",

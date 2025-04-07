@@ -5,53 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Empleados-Crud</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-<div class="container">
-    <h1>Empleados</h1>
-    <form action="create.php" method="POST" onsubmit="return validarFormulario()">
-    <input type="text" name="nombre" placeholder="Nombre" required>
-    <input type="text" name="apellido" placeholder="Apellido" required>
-    <input type="text" name="telefono" placeholder="Teléfono" required>
-    <input type="text" name="cargo" placeholder="Cargo" required>
-    <input type="text" name="departamento" placeholder="Departamento" required>
-    <input type="date" name="fecha_entrada" required>
-    <input type="date" name="fecha_salida" required>
-    <input type="number" name="precio" placeholder="Salario en COP" required>
 
-    <!-- Campo estado con opciones -->
-    <select name="estado" required>
-        <option value="">Seleccionar estado del empleado</option>
-        <option value="Activo">Activo</option>
-        <option value="Inactivo">Inactivo</option>
-    </select>
+<div class="layout">
+    <!-- Aside -->
+    <aside class="sidebar">
+        <div class="logo">
+            <h2>Ibagué Hotel</h2>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#"><i class="fas fa-user"></i> Sergio Gonzales</a></li>
+                <li><a href="#"><i class="fas fa-calendar-alt"></i> Reservas</a></li>
+                <li><a href="#"><i class="fas fa-file-invoice-dollar"></i> Facturación</a></li>
+                <li><a href="#"><i class="fas fa-users"></i> Empleados</a></li>
+                <li><a href="#"><i class="fas fa-bed"></i> Habitaciones</a></li>
+                <li><a href="#"><i class="fas fa-user-tag"></i> Clientes</a></li>
+            </ul>
+        </nav>
+    </aside>
 
-    <input type="text" name="horario" placeholder="Horario (ej: 8:00 - 17:00)" required>
+    <!-- Contenido principal -->
+    <div class="content">
+            <h1 class="titulo_principal">Empleados</h1>
+        <div class="botones_info">
+            <button type="button" class="boton_agregar">Agregar Empleado</button>
+            <div class="prueba">
+                <div class="cuadro"></div>
+                <div class="cuadro2"></div>
+            </div>
+        </div>
+        <form class="formulario_empleado" action="create.php" method="POST" onsubmit="return validarFormulario()">
+            <input type="text" name="nombre" placeholder="Nombre" required>
+            <input type="text" name="apellido" placeholder="Apellido" required>
+            <input type="text" name="telefono" placeholder="Teléfono" required>
+            <input type="text" name="cargo" placeholder="Cargo" required>
+            <input type="text" name="departamento" placeholder="Departamento" required>
+            <input type="date" name="fecha_entrada" required>
+            <input type="date" name="fecha_salida" required>
+            <input type="number" name="precio" placeholder="Salario en COP" required>
 
+            <select name="estado" required>
+                <option value="">Seleccionar estado del empleado</option>
+                <option value="Activo">Activo</option>
+                <option value="Inactivo">Inactivo</option>
+            </select>
 
-    <button type="submit">Cargar</button>
-</form>
+            <input type="text" name="horario" placeholder="Horario (ej: 8:00 - 17:00)" required>
+            <button type="submit">Cargar</button>
+        </form>
 
-
-    <h2>Reservaciones Existentes</h2>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Teléfono</th>
-            <th>cargo</th>
-            <th>departamento</th>
-            <th>Fecha de Entrada</th>
-            <th>Fecha de Salida</th>
-            <th>salario</th>
-            <th>estado</th>
-            <th>horario</th>
-            <th>Acciones</th>
-        </tr>
-        <?php include 'read.php'; ?>
-    </table>
+        <h2>Reservaciones Existentes</h2>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Teléfono</th>
+                <th>Cargo</th>
+                <th>Departamento</th>
+                <th>Fecha de Entrada</th>
+                <th>Fecha de Salida</th>
+                <th>Salario</th>
+                <th>Estado</th>
+                <th>Horario</th>
+                <th>Acciones</th>
+            </tr>
+            <?php include 'read.php'; ?>
+        </table>
+    </div>
 </div>
+
 <script src="./js/script.js"></script>
 </body>
 </html>

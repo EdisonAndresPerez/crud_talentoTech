@@ -1,54 +1,233 @@
-/* Estilos Generales */
+/* =================== */
+/* 🎨 Estilos Generales */
+/* =================== */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    display: flex;
+    background-color: #1F3366;
 }
 
-/* Cabecera */
-header {
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    font-size: 24px;
-}
-
-/* Tabla de Reservaciones */
-table {
+/* =================== */
+/* 📌 Layout Principal */
+/* =================== */
+.layout {
+    display: flex;
     width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
 }
 
-table th, table td {
+/* =================== */
+/* 📌 Sidebar (Barra Lateral) */
+/* =================== */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #1f3b5c;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar nav ul li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     padding: 12px;
-    text-align: left;
+    border-radius: 5px;
+    transition: background 0.3s;
+    font-size: 16px;
+}
+
+.sidebar nav ul li a:hover {
+    background: #2d527b;
+}
+
+/* Reportes en la parte baja */
+.reportes {
+    margin-top: auto;
+    text-align: center;
+}
+
+.reportes a {
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    display: block;
+    background: #3c4f65;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.reportes a:hover {
+    background: #4a607a;
+}
+
+/* =================== */
+/* 📌 Contenido Principal */
+/* =================== */
+.content {
+    flex-grow: 1;
+    padding: 30px;
+    background-color: #f5f5f5;
+}
+
+
+.titulo_principal{
+    text-align: center;
+    background-color: #007B8C;
+    width: 100%;
+    border-radius: 10px;
+    color: white;
+}
+
+.boton_agregar{
+background-color: #007B8C;
+}
+
+.botones_info{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.prueba{
+    display: flex;
+    justify-content: end;
+    gap: 20px;
+}
+
+.cuadro{
+    width: 20px;
+    height: 20px;
+    background-color: red;
+}
+
+.cuadro2 {
+    width: 20px;
+    height: 20px;
+    background-color: green;
+}
+
+
+/* =================== */
+/* 📌 Formulario */
+/* =================== */
+
+.formulario_empleado {
+    display: none; 
+}
+
+form {
+    background-color: white;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+}
+
+form input, form select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
     border: 1px solid #ddd;
-}
-
-table th {
-    background-color: #4CAF50;
-    color: white;
-}
-
-table tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
     border-radius: 5px;
     font-size: 16px;
 }
 
+form button {
+    width: 100%;
+    padding: 14px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007B8C;
+    color: white;
+    border: none;
+    transition: 0.3s;
+}
+
+form button:hover {
+    background-color:#1f3b5c;
+}
+
+/* =================== */
+/* 📌 Tabla de Datos */
+/* =================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color:  #007B8C;
+    color: white;
+    font-size: 16px;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.estado-activo {
+    color: green;
+    font-weight: bold;
+}
+
+.estado-inactivo {
+    color: red;
+    font-weight: bold;
+}
+
+/* =================== */
+/* 📌 Botones */
+/* =================== */
+button {
+    background-color: #007B8C;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
 button:hover {
-    background-color: #45a049;
+    background-color:#1f3b5c;
 }
 
 button:disabled {
@@ -56,72 +235,34 @@ button:disabled {
     cursor: not-allowed;
 }
 
-/* Formulario */
-form {
-    background-color: white;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-form input[type="text"],
-form input[type="date"],
-form input[type="number"] {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-form button {
-    width: 100%;
-    padding: 12px;
-    font-size: 18px;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #4CAF50;
-}
-
-form button[type="button"] {
-    background-color: #f44336;
-}
-
-form button[type="button"]:hover {
-    background-color: #e53935;
-}
-
-form button:hover {
-    background-color: #45a049;
-}
-
-/* Estilo para la tabla de detalles y botones adicionales */
-.btn-group {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.btn-group button {
+/* Botón de edición */
+.btn-edit {
     background-color: #008CBA;
-    color: white;
 }
 
-.btn-group button:hover {
+.btn-edit:hover {
     background-color: #007B8C;
 }
 
-/* Estilo para el mensaje de error/success */
+/* Botón de eliminar */
+.btn-delete {
+    background-color: #f44336;
+}
+
+.btn-delete:hover {
+    background-color: #e53935;
+}
+
+/* =================== */
+/* 📌 Alertas (Éxito/Error) */
+/* =================== */
 .alert {
-    padding: 10px;
+    padding: 12px;
     margin: 15px 0;
     border-radius: 5px;
     text-align: center;
     font-weight: bold;
+    font-size: 16px;
 }
 
 .alert.success {
@@ -134,54 +275,26 @@ form button:hover {
     color: white;
 }
 
-/* Estilo para la actualización de reserva */
-form.update-form {
-    background-color: #ffffff;
-    padding: 30px;
-    margin: 20px 0;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.update-form input,
-.update-form select {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.update-form button {
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.update-form button:hover {
-    background-color: #45a049;
-}
-
-.update-form button[type="button"] {
-    background-color: #f44336;
-}
-
-.update-form button[type="button"]:hover {
-    background-color: #e53935;
-}
-
-/* Modificaciones para pantallas pequeñas */
+/* =================== */
+/* 📌 Responsive Design */
+/* =================== */
 @media (max-width: 768px) {
-    table {
+    .sidebar {
+        width: 200px;
+        padding: 15px;
+    }
+
+    .sidebar nav ul li a {
         font-size: 14px;
+        padding: 10px;
     }
 
     form {
         width: 90%;
+    }
+
+    table {
+        font-size: 14px;
     }
 
     .btn-group {

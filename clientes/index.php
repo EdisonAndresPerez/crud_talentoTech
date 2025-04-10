@@ -17,7 +17,7 @@
         </div>
         <nav>
             <ul>
-                <li><a href="crud_hotel_v2/index.php"><i class="fas fa-user"></i> Sergio Gonzales</a></li>
+                <li><a href="#"><i class="fas fa-user"></i> Sergio Gonzales</a></li>
                 <li><a href="#"><i class="fas fa-calendar-alt"></i> Reservas</a></li>
                 <li><a href="#"><i class="fas fa-file-invoice-dollar"></i> Facturación</a></li>
                 <li><a href="#"><i class="fas fa-users"></i> Empleados</a></li>

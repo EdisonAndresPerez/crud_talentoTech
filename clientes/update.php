@@ -10,7 +10,7 @@ if (isset($_POST['update'])) {
     $update_correo = $_POST['update_correo'];
    
 
-    $update_query = "UPDATE cliente SET 
+    $update_query = "UPDATE clientes SET 
     nombre = '$update_nombre', 
     tipo_doc= '$update_tipo_doc', 
     numero_doc = '$update_numero_doc', 

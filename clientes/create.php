@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     ('$nombre', '$tipo_doc', '$numero_doc', '$telefono', '$correo')";
 
     if (mysqli_query($conn, $sql)) {
-        header('Location: clientes/index.php?mensaje=Cliente registrado exitosamente');
+        header('Location: index.php?mensaje=Cliente registrado exitosamente');
         exit;
     } else {
         echo json_encode([

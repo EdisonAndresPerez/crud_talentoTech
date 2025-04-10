@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Empleados-Crud</title>
+    <title>Habitaciones-Crud</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
@@ -29,44 +29,38 @@
 
     <!-- Contenido principal -->
     <div class="content">
-            <h1 class="titulo_principal">Empleados</h1>
+            <h1 class="titulo_principal">Habitaciones</h1>
         <div class="botones_info">
-            <button type="button" class="boton_agregar">Agregar Empleado</button>
+            <button type="button" class="boton_agregar">Agregar Habitacion</button>
         </div>
         <form class="formulario_empleado" action="create.php" method="POST" onsubmit="return validarFormulario()">
             <div class="form-content">
-                <input type="text" name="nombre" placeholder="Nombre" required>
-                <input type="text" name="apellido" placeholder="Apellido" required>
-                <input type="text" name="telefono" placeholder="Teléfono" required>
-                <input type="text" name="cargo" placeholder="Cargo" required>
-                <input type="text" name="departamento" placeholder="Departamento" required>
-                <input type="date" name="fecha_entrada" required>
-                <input type="date" name="fecha_salida" required>
-                <input type="number" name="precio" placeholder="Salario en COP" required>
+                <input type="number" name="numero" placeholder="Ingrese el número de su habitacion" required>
+                <input type="text" name="tipo" placeholder="Ingrese el tipo de habitacion que requiere" required>
+                <input type="number" name="capacidad" placeholder="Ingrese la capacidad de personas" required>
                 <select name="estado" required>
-                    <option value="">Seleccionar estado del empleado</option>
-                    <option value="Activo">Activo</option>
-                    <option value="Inactivo">Inactivo</option>
+                    <option value="">Seleccionar estado de la habitacion</option>
+                    <option value="Limpieza">Limpieza</option>
+                    <option value="Ocupado">Ocupado</option>
+                    <option value="Disponible">Disponible</option>
+                    <option value="Reservado">Reservado</option>
                 </select>     
-                <input type="text" name="horario" placeholder="Horario (ej: 8:00 - 17:00)" required>
+                <input type="text" name="precio_noche" placeholder="Ingrese el valor de precio noche" required>
+                <input type="text" name="descripcion" placeholder="Ingrese la descripcion de la habitacion" required>
                 <button type="submit">Cargar</button>
             </div>
         </form>
 
-        <h2>Reservaciones Existentes</h2>
+        <h2>Reservaciones Existentes de Habitaciones</h2>
         <table class="flex">
             <tr>
                 <th>ID</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Teléfono</th>
-                <th>Cargo</th>
-                <th>Departamento</th>
-                <th>Fecha de Entrada</th>
-                <th>Fecha de Salida</th>
-                <th>Salario</th>
+                <th>Numero</th>
+                <th>Tipo</th>
+                <th>Capacidad</th>
                 <th>Estado</th>
-                <th>Horario</th>
+                <th>Precio Noche</th>
+                <th>Descripción</th>
                 <th>Acciones</th>
             </tr>
             <?php include 'read.php'; ?>

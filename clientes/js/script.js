@@ -5,17 +5,12 @@ console.log("Script cargado correctamente");
 // Validar el formulario antes de enviar
 function validarFormulario() {
     const nombre = document.querySelector('input[name="nombre"]').value.trim();
-    const apellido = document.querySelector('input[name="apellido"]').value.trim();
+    const tipo_doc = document.querySelector('input[name="tipo_doc"]').value.trim();
+    const numero_doc = document.querySelector('input[name="numero_doc"]').value.trim();
     const telefono = document.querySelector('input[name="telefono"]').value.trim();
-    const cargo = document.querySelector('input[name="cargo"]').value.trim();
-    const departamento = document.querySelector('input[name="departamento"]').value.trim();
-    const fechaEntrada = document.querySelector('input[name="fecha_entrada"]').value;
-    const fechaSalida = document.querySelector('input[name="fecha_salida"]').value;
-    const precio = document.querySelector('input[name="precio"]').value.trim();
-    const estado = document.querySelector('input[name="estado"]').value;
-    const horario = document.querySelector('input[name="horario"]').value.trim();
+    const correo = document.querySelector('input[name="correo"]').value.trim();
 
-    if (!nombre || !apellido || !telefono || !cargo || !departamento || !fechaEntrada || !fechaSalida || !precio || !estado) {
+    if (!nombre || !tipo_doc || !numero_doc || !telefono || !correo  ) {
         alert("Por favor, complete todos los campos.");
         return false;
     }
@@ -25,13 +20,8 @@ function validarFormulario() {
         return false;
     }
 
-    if (isNaN(precio) || parseFloat(precio) <= 0) {
-        alert("El salario debe ser un número positivo.");
-        return false;
-    }
-
-    if (new Date(fechaEntrada) > new Date(fechaSalida)) {
-        alert("La fecha de entrada no puede ser posterior a la fecha de salida.");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)) {
+        alert("Por favor, ingrese un correo electrónico válido.");
         return false;
     }
 
@@ -40,42 +30,29 @@ function validarFormulario() {
         return false;
     }
 
-    if (!horario.includes('-')) {
-        alert("Formato de horario inválido. Ejemplo válido: 8:00 - 17:00");
-        return false;
-    }
-
     return true;
 }
 
-// Mostrar el formulario de actualización (editar empleado)
-function mostrarFormularioActualizar(id, nombre, apellido, telefono, cargo, departamento, fecha_entrada, fecha_salida, precio, estado, horario) {
+function mostrarFormularioActualizar(id, nombre, tipo_doc, numero_doc, telefono, correo, estado) {
     const formActualizar = document.createElement('div');
     formActualizar.innerHTML = `
         <form action="update.php" method="POST" class="form-content">
             <input type="hidden" name="update_id" value="${id}">
             <input type="text" name="update_nombre" value="${nombre}" required>
-            <input type="text" name="update_apellido" value="${apellido}" required>
+            <input type="text" name="update_tipo_doc" value="${tipo_doc}" required>
+            <input type="text" name="update_numero_doc" value="${numero_doc}" required>
             <input type="text" name="update_telefono" value="${telefono}" required>
-            <input type="text" name="update_cargo" value="${cargo}" required>
-            <input type="text" name="update_departamento" value="${departamento}" required>
-            <input type="date" name="update_fecha_entrada" value="${fecha_entrada}" required>
-            <input type="date" name="update_fecha_salida" value="${fecha_salida}" required>
-            <input type="number" name="update_precio" value="${precio}" required>
+            <input type="text" name="update_correo" value="${correo}" required>
 
             <select name="update_estado" required>
-                <option value="">Seleccionar estado</option>
                 <option value="Activo" ${estado === "Activo" ? "selected" : ""}>Activo</option>
                 <option value="Inactivo" ${estado === "Inactivo" ? "selected" : ""}>Inactivo</option>
             </select>
-
-            <input type="text" name="update_horario" value="${horario}" required>
 
             <button type="submit" name="update">Actualizar</button>
             <button type="button" onclick="cancelarEdicion(this)">Cancelar</button>
         </form>
     `;
-
     // Estilo flotante del contenedor
     formActualizar.style.position = "fixed";
     formActualizar.style.top = "50%";
@@ -100,19 +77,19 @@ function cancelarEdicion(boton) {
     }
 }
 
-function eliminarReservacion(id) {
+function eliminarcliente(id) {
     console.log("ID a eliminar:", id); 
-    if (confirm("¿Estás seguro de que deseas eliminar esta reservación?")) {
+    if (confirm("¿Estás seguro de que deseas eliminar este cliente?")) {
         // Redireccionar a un script PHP con el id a eliminar
         window.location.href = "delete.php?delete_id=" + id;
     }
 }
 
 
-// Mostrar/Ocultar el formulario de "Agregar Empleado"
+// Mostrar/Ocultar el formulario de "Agregar clientes"
 document.addEventListener('DOMContentLoaded', () => {
     const botonAgregar = document.querySelector('.boton_agregar');
-    const formulario = document.querySelector('.formulario_empleado');
+    const formulario = document.querySelector('.formulario_clientes');
 
     if (!botonAgregar || !formulario) return; // Seguridad por si no existen
 
@@ -121,6 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
     botonAgregar.addEventListener('click', () => {
         formularioVisible = !formularioVisible;
         formulario.style.display = formularioVisible ? 'block' : 'none';
-        botonAgregar.textContent = formularioVisible ? 'Cancelar' : 'Agregar Empleado';
+        botonAgregar.textContent = formularioVisible ? 'Cancelar' : 'Agregar cliente';
     });
 });

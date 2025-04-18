@@ -20,9 +20,9 @@
                 <li><a href="#"><i class="fas fa-user"></i> Sergio Gonzales</a></li>
                 <li><a href="#"><i class="fas fa-calendar-alt"></i> Reservas</a></li>
                 <li><a href="#"><i class="fas fa-file-invoice-dollar"></i> Facturación</a></li>
-                <li><a href="#"><i class="fas fa-users"></i> Empleados</a></li>
-                <li><a href="#"><i class="fas fa-bed"></i> Habitaciones</a></li>
-                <li><a href="#"><i class="fas fa-user-tag"></i> Clientes</a></li>
+                <li><a href="/crud_talentoTech/empleados/index.php"><i class="fas fa-users"></i> Empleados</a></li>
+                <li><a href="/crud_talentoTech/Habitaciones/index.php"><i class="fas fa-bed"></i> Habitaciones</a></li>
+                <li><a href="/crud_talentoTech/clientes/index.php"><i class="fas fa-user-tag"></i> Clientes</a></li>
             </ul>
         </nav>
     </aside>
